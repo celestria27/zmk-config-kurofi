@@ -1,0 +1,15 @@
+file_format: "1"
+id: fifi
+name:Fifi 
+type: shield
+url: https://github.com/raychengy/fifi_split_keeb/
+requires: [pro_micro]
+exposes: [i2c_oled]
+features:
+  - keys
+  - display
+  - studio
+siblings:
+  - fifi_left_peripheral
+  - fifi_right
+  - fifi_dongle_pro_micro

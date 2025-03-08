@@ -6,20 +6,26 @@
 # `artifact-name` to assign a name to distinguish build outputs from each other:
 #
 # board: [ "nice_nano_v2" ]
-# shield: [ "corne_left", "corne_right" ]
+# shield: [ "fifi_left", "fifi_right" ]
 # include:
 #   - board: bdn9_rev2
 #   - board: nice_nano_v2
 #     shield: reviung41
 #   - board: nice_nano_v2
-#     shield: corne_left
+#     shield: fifi_left
 #     snippet: studio-rpc-usb-uart
 #     cmake-args: -DCONFIG_ZMK_STUDIO=y
-#     artifact-name: corne_left_with_studio
+#     artifact-name: fifi_left_with_studio
 #
 ---
 include:
   - board: nice_nano_v2
-    shield: corne_left
+    shield: fifi_left_peripheral
+
   - board: nice_nano_v2
-    shield: corne_right
+    shield: fifi_right
+
+  - board: nice_nano_v2
+    shield: fifi_dongle_pro_micro dongle_display
+    cmake-args: -DCONFIG_ZMK_KEYBOARD_NAME=\"Kurofi Dongle\"
+    snippet: studio-rpc-usb-uart

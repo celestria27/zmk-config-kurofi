@@ -1,0 +1,81 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
+
+// Layers
+#define NUM_NAV_L 1
+#define SYM_L     2
+#define FN_MS_L   3
+
+// TAPS
+#define MT_BASE( m, t ) &hm ( m ) ( t )
+// Left
+#define MLG( k ) MT_BASE( LGUI, ( k ) )
+#define MLA( k ) MT_BASE( LALT, ( k ) )
+#define MLC( k ) MT_BASE( LCTRL, ( k ) )
+#define MLS( k ) MT_BASE( LSHFT, ( k ) )
+
+// Right
+#define MRG( k ) MT_BASE( RGUI, ( k ) )
+#define MRA( k ) MT_BASE( RALT, ( k ) )
+#define MRC( k ) MT_BASE( RCTRL, ( k ) )
+#define MRS( k ) MT_BASE( RSHFT, ( k ) )
+
+/ {
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
+        keymap {
+                compatible = "zmk,keymap";
+
+                default_layer {
+                    display-name = "BA";
+                        bindings = <
+&kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y   &kp U  &kp I     &kp O    &kp P
+MLG(A) MLA(S) MLC(D) MLS(F) &kp G        &kp H   MRS(J) MLC(K)    MRA(L)   MRG(SEMI)
+&kp Z  &kp X  &kp C  &kp V  &kp B        &kp N   &kp M  &kp COMMA MRC(DOT) &kp FSLH 
+              &mo 3  &mo 1  &kp SPACE    &kp RET &mo 2  &kp BSPC 
+                          >;
+                  };
+                  lower_layer {
+                      display-name = "LO";
+                          bindings = <
+&kp ESC &kp AMPS &kp STAR  &kp GRAVE &kp TILDE     &kp SQT   &kp DQT   &kp LPAR &kp RPAR &trans
+&trans  &kp DLLR &kp PRCNT &kp CARET &trans        &kp MINUS &kp EQUAL &kp LBKT &kp RBKT &kp BSLH
+&trans  &kp EXCL &kp AT    &kp POUND &trans        &kp UNDER &kp PLUS  &kp LBRC &kp RBRC &kp PIPE
+                 &trans    &trans    &trans        &trans    &trans    &trans
+                          >;
+                  };
+                  raise_layer {
+                      display-name = "HI";
+                          bindings = <
+&kp TAB &kp N7 &kp N8 &kp N9 &trans     &trans   &trans    &trans    &trans    &kp DEL
+&trans  &kp N4 &kp N5 &kp N6 &trans     &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans
+&kp N0  &kp N1 &kp N2 &kp N3 &trans     &kp HOME &kp PG_UP &kp PG_DN &kp END   &kp INS
+               &trans &trans &trans     &trans   &trans    &trans
+                          >;
+                  };
+                  fn_layer {
+                      display-name = "FN";
+                          bindings = <
+&trans &kp F7 &kp F8 &kp F9 &kp F10     &trans         &mkp MB1       &mkp MB3     &mkp MB2        &trans
+&trans &kp F4 &kp F5 &kp F6 &kp F11     &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans
+&trans &kp F1 &kp F2 &kp F3 &kp F12     &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT &trans
+              &trans &trans &trans      &trans   &trans    &trans
+                          >;
+                 };
+        };
+};

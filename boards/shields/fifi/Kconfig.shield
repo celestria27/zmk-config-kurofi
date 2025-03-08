@@ -1,0 +1,11 @@
+# Copyright (c) 2020 Pete Johanson
+# SPDX-License-Identifier: MIT
+
+config SHIELD_FIFI_RIGHT
+    def_bool $(shields_list_contains,fifi_right)
+
+config SHIELD_FIFI_LEFT_PERIPHERAL
+    def_bool $(shields_list_contains,fifi_left_peripheral)
+
+config SHIELD_FIFI_DONGLE_PRO_MICRO
+    def_bool $(shields_list_contains,fifi_dongle_pro_micro)
