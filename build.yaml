@@ -19,15 +19,15 @@
 #
 ---
 include:
-  - board: nice_nano_v2
+  - board: nice_nano
     shield: fifi_left_peripheral
 
-  - board: nice_nano_v2
+  - board: nice_nano
     shield: fifi_right
 
-  - board: nice_nano_v2
+  - board: nice_nano
     shield: fifi_dongle_pro_micro dongle_display
     snippet: studio-rpc-usb-uart
 
-  - board: nice_nano_v2
+  - board: nice_nano
     shield: settings_reset
