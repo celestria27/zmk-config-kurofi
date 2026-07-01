@@ -13,6 +13,6 @@ manifest:
     # dongle_display
     - name: zmk-dongle-display
       remote: englmaxi
-      revision: main
+      revision: v0.3.0
   self:
     path: config
